@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unified Communication Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">UBC</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container">
+      <h1 class="jumbotron text-center">Welcome to the Unified Communication Dashboard</h1>
+
+      <!-- Messaging Functionality -->
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Messaging</h2>
+          <form id="messaging-form">
+            <div class="form-group">
+              <label for="recipient">Recipient:</label>
+              <input type="text" class="form-control" id="recipient" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea class="form-control" id="message" required></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" id="send-message">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Communication Channels -->
+        <div class="col-md-6">
+          <h2>Communication Channels</h2>
+          <ul id="communication-channels" class="list-group">
+            <li class="list-group-item">Channel 1</li>
+            <li class="list-group-item">Channel 2</li>
+            <li class="list-group-item">Channel 3</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Analytics Display -->
+      <div class="row">
+        <div class="col-md-12">
+          <div id="analytics">
+            <h2>Analytics</h2>
+            <!-- Display analytics data here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include Bootstrap and jQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      // JavaScript code for handling messaging and other functionalities goes here
+      document
+        .getElementById("send-message")
+        .addEventListener("click", function () {
+          // Handle sending a message using JavaScript
+          const AWS = require("aws-sdk");
+
+          AWS.config.update({ region: "us-east-1" });
+
+          const sqs = new AWS.SQS();
+
+          const queueUrl =
+            "https://sqs.us-east-1.amazonaws.com/515279104096/RealTimeMessaging.fifo";
+
+          const messageBody = document.getElementById("message").value;
+
+          const params = {
+            MessageBody: messageBody,
+            QueueUrl: queueUrl,
+          };
+
+          sqs.sendMessage(params, (err, data) => {
+            if (err) {
+              console.log("Error sending message to SQS: ", err);
+            } else {
+              console.log("Message sent to SQS: ", data.MessageId);
+            }
+          });
+        });
+
+      // You can add JavaScript functions for updating communication channels and handling analytics here.
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+*{
+    transition: .9s;
+}
+
+body{
+    color:black;
+    font-family: lato;
+    background-color:aliceblue;
+}
+
+h1{
+    text-align:center;
+    background-color:rgb(213, 210, 210);
+    padding:40px;
+    margin:0px;
+    font-size: 42px;
+}
+
+.form-container{
+    position: absolute;
+    align-items:center;
+    text-align:center;
+    margin:30px;
+    width:30vw;
+    left:65vw;
+    top: 25vh;
+}
+
+.form-welcome{
+    position: relative;
+    width: 50vw;
+    top: 10vh;
+    left: 5vw;
+}
