@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ubcomms-dev-201018-authRole",
+      "UnauthRoleArn": "arn:aws:iam::515279104096:role/amplify-ubcomms-dev-201018-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::515279104096:role/amplify-ubcomms-dev-201018-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-ubcomms-dev-201018-deployment",
+      "UnauthRoleName": "amplify-ubcomms-dev-201018-unauthRole",
+      "StackName": "amplify-ubcomms-dev-201018",
+      "StackId": "arn:aws:cloudformation:us-east-1:515279104096:stack/amplify-ubcomms-dev-201018/7f707ab0-6b8e-11ee-a1c2-0ec4c732c3e1",
+      "AmplifyAppId": "d1g6mcxj2twdn2"
+    },
+    "categories": {
+      "api": {
+        "ubcomms": {}
+      }
+    }
+  }
+}
