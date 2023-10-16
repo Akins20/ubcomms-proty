@@ -6,9 +6,9 @@ function Header() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" href="/">
           UBC
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,24 +23,24 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="#">
                 Services
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="#">
                 About Us
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" href="#">
                 Contact
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <Link
@@ -49,6 +49,14 @@ function Header() {
                 href="https://ubc.auth.us-east-1.amazoncognito.com/login?client_id=7opge27d7oj3pjo4mjr0ednget&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fmain.dtzpjajlhuqro.amplifyapp.com%2Fdashboard.html"
               >
                 Sign in
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                target="_blank"
+                href="/SignupPage">
+                Sign Up
               </Link>
             </li>
           </ul>

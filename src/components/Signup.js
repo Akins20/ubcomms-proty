@@ -1,21 +1,27 @@
 import { useState } from 'react';
 
 const Signup = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     // Implement signup logic using your authentication service or API
+    try {
+        const { user } = await Auth.signUp({ username, password });
+        console.log(user);
+    } catch (error) {
+        console.log('error signing up:', error);
+    }
   };
 
   return (
     <div>
       <h2>Sign Up</h2>
       <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="password"
